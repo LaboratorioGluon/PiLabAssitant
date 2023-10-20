@@ -8,12 +8,10 @@
 #include <QtQml>
 
 #include "globals.h"
-#include "irc.h"
 #include "modules/ADC/adcController.h"
 #include "modules/UART/uartController.h"
 
 gpioHandler *hGpio;
-IRC *hIRC;
 adcController *adc;
 uartController *uart;
 
@@ -27,9 +25,6 @@ int main(int argc, char *argv[])
 
     //qmlRegisterSingletonType(QUrl("qrc:///Style.qml"), "App", 1, 0, "Style");
 
-    hIRC = new IRC();
-    hIRC->Init();
-    //test_irc();
     QThread workerThread;
     app.setOverrideCursor( QCursor( Qt::BlankCursor ) );
     hGpio = new gpioHandler();
@@ -42,7 +37,6 @@ int main(int argc, char *argv[])
 
     
     engine.rootContext()->setContextProperty("_gpioHandler", hGpio);
-    engine.rootContext()->setContextProperty("_ircHandler", hIRC);
     engine.rootContext()->setContextProperty("_adcHandler", adc);
     engine.rootContext()->setContextProperty("_uartHandler", uart);
 

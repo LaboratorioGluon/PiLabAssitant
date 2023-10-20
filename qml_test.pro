@@ -24,15 +24,12 @@ LIBS +=  -L"/usr/lib/" -lwiringPi
 
 # Input
 HEADERS += src/gpios.h \
-           src/irc.h  \
-           src/secret.h \ 
            modules/ADC/adcController.h \
             modules/UART/uartController.h \
             modules/UART/receiverThread.h \
 
 SOURCES +=  main.cpp \
             src/gpios.cpp \
-            src/irc.cpp   \
             modules/ADC/adcController.cpp \
             modules/UART/uartController.cpp \
             modules/UART/receiverThread.cpp \
